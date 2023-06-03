@@ -2,7 +2,13 @@ import React from 'react'
 
 const Series = () => {
     return (
-    <   div>Series</div>
+        <div>
+            <h1>Solicitud IMDb API</h1>
+            <h2>Robisnel Paniza</h2>
+            <button>Traer series</button>
+            <button>Siguiente</button>
+            <button>Atrás</button>
+        </div>
     )
 }
 
