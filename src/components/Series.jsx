@@ -21,14 +21,41 @@ const Series = () => {
         }
     }
 
+    // Funciones botones
+    const traer = () => {
+        setIndex(index + 1);
+        traerSeries(index + 1);
+    }
+
+    const siguiente = () => {
+        setIndex(index + 1);
+        traerSeries(index + 1);
+    }
+
+    const atras = () => {
+        if (index > 1) {
+            setIndex(index - 1);
+            traerSeries(index - 1);
+        }
+    }
+
     // HTML devuelto
     return (
         <div>
             <h1>Solicitud IMDb API</h1>
             <h2>Robisnel Paniza</h2>
-            <button>Traer series</button>
-            <button>Siguiente</button>
-            <button>Atrás</button>
+            <button onClick={traer}>Traer series</button>
+            <button onClick={siguiente}>Siguiente</button>
+            <button onClick={atras}>Atrás</button>
+            {
+                series.map((aux) => (
+                    <div key={aux.id}>
+                        <h3>{aux.name}</h3>
+                        <h4>{aux.first_air_date}</h4>
+                        <img src={`https://image.tmdb.org/t/p/w500/${aux.poster_path}`} alt={aux.name} />
+                    </div>
+                ))
+            }
         </div>
     )
 }
